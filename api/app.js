@@ -10,6 +10,8 @@ var usersRouter = require("./routes/users");
 
 //testAPI router per la rotta da usare on port 9000 http://localhost:9000/testAPI
 var testAPIRouter = require("./routes/testAPI");
+//tell Express to use route testDB
+var testDBRouter = require("./routes/testDB");
 
 var app = express();
 
@@ -28,6 +30,8 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 //dico ad express di usare questa rotta
 app.use("/testAPI", testAPIRouter);
+//This will “tell” Express that every time there is a request to the endpoint /testDB, it should use the instructions on the file testDB.js.
+app.use("/testDB", testDBRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

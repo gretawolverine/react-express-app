@@ -5,6 +5,7 @@ import "./App.css";
 
 const App = () => {
     const [apiResponse, setApiResponse] = useState("");
+    const [dbResponse, setDbResponse] = useState("");
 
     const callAPI = () => {
         fetch("http://localhost:9000/testAPI")
@@ -12,8 +13,16 @@ const App = () => {
             .then((res) => setApiResponse(res));
     };
 
+    const callDB = () => {
+        fetch("http://localhost:9000/testDB")
+            .then((res) => res.text())
+            .then((res) => setDbResponse(res))
+            .catch((err) => err);
+    };
+
     useEffect(() => {
         callAPI();
+        callDB();
     }, []);
 
     return (
@@ -32,6 +41,7 @@ const App = () => {
                     Learn React
                 </a>
                 <p className="App-intro">{`${apiResponse} GRETAAA CALL API `}</p>
+                <p className="App-intro">{`${dbResponse} GRETA DB RESPONSE`}</p>
             </header>
         </div>
     );
