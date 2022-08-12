@@ -35,9 +35,9 @@ Here, we are exposing port 3000 (the port that runs the React application) to po
 
 docker build -f Dockerfile -t api .
 
-docker run -it -p 4002:3001 api
+docker run -it -p 4002:9000 api
 
-Here, we are exposing port 3001 (the port that is running the Node.js server application) to port 4002 outside the container—run the above command.
+Here, we are exposing port 9000 (the port that is running the Node.js server application) to port 4002 outside the container—run the above command.
 If you now open http://localhost:4002/ on a browser, you can see that the Node.js home route is okay and the app is working inside Docker.
 
 ### Docker on root directory
